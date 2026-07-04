@@ -4,16 +4,16 @@
 This repository contains a modern "Weather Intelligence App" featuring a clean SaaS-style dashboard, search module, 7-day forecast cards, and smart planning recommendations.
 
 ## 🚀 Cloudflare Pages Deployment (Web Version)
-To guarantee a successful Cloudflare Pages deployment and avoid any build environment errors (`Missing entry-point`, `directory does not exist`, or `Asset too large`), **I have pre-built the web files into a `dist/` directory directly within this repository** and configured `wrangler.toml` to automatically use it.
+To guarantee a successful Cloudflare Pages deployment and avoid any build environment errors (`Missing entry-point`, `directory does not exist`, or `Asset too large`), **I have moved the web files into a `public/` directory directly within this repository**.
 
 When configuring Cloudflare Pages for this GitHub repository, simply use these settings:
 - **Framework Preset**: `None`
 - **Build Command**: *(Leave completely blank!)*
-- **Build Output Directory**: `dist`
+- **Build Output Directory**: `public`
 
-Because the `dist` folder now physically exists in the repository, Cloudflare will no longer fail looking for it, and you won't need to run any NPM build commands that might fail.
+Because the `public` folder physically exists in the repository, Cloudflare will deploy its contents directly without needing to run any complex build commands.
 
-Cloudflare will automatically detect the `package.json` and `index.html` at the root and build the static frontend.
+Cloudflare will automatically deploy the static frontend from the `public` directory.
 
 ## 📱 Android Version (AI Studio Native)
 *Note: This repository was originally generated in AI Studio as an Android application using Kotlin and Jetpack Compose. The Android source code is safely preserved in the `/app` directory.*
