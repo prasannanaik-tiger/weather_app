@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "mkdir -p dist && cp index.html main.js dist/"
+    "build": "mkdir -p dist && cp index.html main.js dist/ && rm -rf node_modules"
   }
 }
