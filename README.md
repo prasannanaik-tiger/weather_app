@@ -4,16 +4,23 @@
 This repository contains a modern "Weather Intelligence App" featuring a clean SaaS-style dashboard, search module, 7-day forecast cards, and smart planning recommendations.
 
 ## 🚀 Cloudflare Pages Deployment (Web Version)
-To guarantee a successful Cloudflare Pages deployment and avoid any build environment errors (`Missing entry-point`, `directory does not exist`, or `Asset too large`), **I have moved the web files into a `public/` directory directly within this repository**.
 
-When configuring Cloudflare Pages for this GitHub repository, simply use these settings:
-- **Framework Preset**: `None`
-- **Build Command**: *(Leave completely blank!)*
-- **Build Output Directory**: `public`
+⚠️ **CRITICAL: You are seeing a "workers.dev" error because Cloudflare is trying to deploy this as a Worker instead of a Pages project.**
 
-Because the `public` folder physically exists in the repository, Cloudflare will deploy its contents directly without needing to run any complex build commands.
+To deploy this static website correctly, you must use **Cloudflare Pages**, not Cloudflare Workers.
 
-Cloudflare will automatically deploy the static frontend from the `public` directory.
+### Step-by-Step Instructions for Cloudflare Dashboard:
+1. Log into your Cloudflare Dashboard.
+2. Go to **Workers & Pages** in the left sidebar.
+3. Click the **Create application** button.
+4. **IMPORTANT**: Click on the **Pages** tab at the top (Do *not* stay on the Workers tab).
+5. Click **Connect to Git** and select this repository.
+6. In the build settings, use these EXACT configurations:
+   - **Framework Preset**: `None`
+   - **Build Command**: *(Leave completely blank!)*
+   - **Build Output Directory**: `public`
+
+Because the `public` folder physically exists in the repository, Cloudflare Pages will deploy its contents directly without needing to run any complex build commands, and you will not get any `workers.dev` subdomain errors.
 
 ## 📱 Android Version (AI Studio Native)
 *Note: This repository was originally generated in AI Studio as an Android application using Kotlin and Jetpack Compose. The Android source code is safely preserved in the `/app` directory.*
