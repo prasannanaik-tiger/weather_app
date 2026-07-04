@@ -4,14 +4,14 @@
 This repository contains a modern "Weather Intelligence App" featuring a clean SaaS-style dashboard, search module, 7-day forecast cards, and smart planning recommendations.
 
 ## 🚀 Cloudflare Pages Deployment (Web Version)
-To deploy this successfully to Cloudflare Pages and fix the `Asset too large` error, you **must** configure the Build Output Directory correctly so Cloudflare doesn't try to deploy your entire repository (which includes large build tools and the Android source code).
+To guarantee a successful Cloudflare Pages deployment and avoid any build environment errors (`Missing entry-point`, `directory does not exist`, or `Asset too large`), **I have pre-built the web files into a `dist/` directory directly within this repository** and configured `wrangler.toml` to automatically use it.
 
-When configuring Cloudflare Pages for this GitHub repository, ensure your settings match this EXACTLY:
+When configuring Cloudflare Pages for this GitHub repository, simply use these settings:
 - **Framework Preset**: `None`
-- **Build Command**: `npm run build`
-- **Build Output Directory**: `dist` *(<-- THIS IS CRITICAL to fix the "Asset too large" error)*
+- **Build Command**: *(Leave completely blank!)*
+- **Build Output Directory**: `dist`
 
-*I have also added a `wrangler.toml` file and updated the build script to aggressively clean up `node_modules` to help force Cloudflare to only deploy the `dist/` web assets.*
+Because the `dist` folder now physically exists in the repository, Cloudflare will no longer fail looking for it, and you won't need to run any NPM build commands that might fail.
 
 Cloudflare will automatically detect the `package.json` and `index.html` at the root and build the static frontend.
 
