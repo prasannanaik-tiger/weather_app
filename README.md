@@ -4,10 +4,10 @@
 This repository contains a modern "Weather Intelligence App" featuring a clean SaaS-style dashboard, search module, 7-day forecast cards, and smart planning recommendations.
 
 ## 🚀 Cloudflare Pages Deployment (Web Version)
-To resolve the Cloudflare `Could not detect a directory containing static files` error, **a web-compatible SPA (Single Page Application) has been added to the root of this repository.**
+To deploy this successfully to Cloudflare Pages, the app has been simplified to a pure static site without complex build tools like Vite (which avoids `bun run build` errors).
 
 When configuring Cloudflare Pages for this GitHub repository:
-- **Framework Preset**: `Vite` (or `None`)
+- **Framework Preset**: `None`
 - **Build Command**: `npm run build`
 - **Build Output Directory**: `dist`
 
