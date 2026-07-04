@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: '#F3F4F9',
+              primaryContainer: '#DDE2F9',
+              onPrimaryContainer: '#151B2C',
+              surface: '#FFFFFF',
+              surfaceVariant: '#FDFBFF',
+              onSurface: '#1B1B1F',
+              onSurfaceVariant: '#44474E',
+              outline: '#E1E2E9'
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            body { @apply bg-background text-onSurface font-sans min-h-screen flex flex-col items-center p-4; }
+        }
+        /* Hide scrollbar for forecast row */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="w-full">
+    <div id="app" class="flex flex-col gap-6 max-w-md w-full mt-4">
+        <!-- Search -->
+        <div class="relative">
+            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-onSurfaceVariant">search</span>
+            <input type="text" id="searchInput" placeholder="Search city..." 
+                class="w-full bg-surface border border-outline rounded-full py-3 pl-12 pr-4 outline-none focus:border-onSurfaceVariant transition-colors">
+        </div>
+
+        <div id="errorState" class="hidden text-center text-red-500 py-8">
+            <span class="material-symbols-outlined text-4xl mb-2">warning</span>
+            <p id="errorMessage">City not found. Please verify spelling and try again.</p>
+        </div>
+
+        <div id="loadingState" class="hidden text-center py-8 text-onSurfaceVariant">
+            <span class="material-symbols-outlined animate-spin text-4xl">sync</span>
+            <p class="mt-2">Loading...</p>
+        </div>
+
+        <div id="weatherContent" class="hidden flex-col gap-6 w-full">
+            <!-- Current Weather -->
+            <div class="bg-primaryContainer rounded-[32px] p-8 text-center relative overflow-hidden">
+                <div class="relative z-10 flex flex-col items-center">
+                    <h1 id="currentTemp" class="text-7xl font-light mb-2 text-onPrimaryContainer">--°</h1>
+                    <h2 id="cityName" class="text-xl font-bold text-onPrimaryContainer mb-1">--</h2>
+                    <p id="weatherDesc" class="text-sm font-bold text-onSurfaceVariant uppercase tracking-wider mb-8">--</p>
+                    
+                    <div class="flex gap-4 w-full">
+                        <div class="flex-1 bg-white/50 backdrop-blur-md rounded-2xl p-3 shadow-sm border border-white/20">
+                            <p class="text-[11px] font-bold text-onSurfaceVariant mb-1 uppercase tracking-wider">Humidity</p>
+                            <p id="humidity" class="text-sm font-bold text-onPrimaryContainer">--%</p>
+                        </div>
+                        <div class="flex-1 bg-white/50 backdrop-blur-md rounded-2xl p-3 shadow-sm border border-white/20">
+                            <p class="text-[11px] font-bold text-onSurfaceVariant mb-1 uppercase tracking-wider">Wind</p>
+                            <p id="windSpeed" class="text-sm font-bold text-onPrimaryContainer">-- km/h</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forecast -->
+            <div>
+                <h3 class="text-[13px] font-bold text-onSurfaceVariant uppercase tracking-widest mb-3 pl-2">7-Day Forecast</h3>
+                <div id="forecastContainer" class="flex gap-3 overflow-x-auto pb-2 px-2 snap-x no-scrollbar">
+                    <!-- Cards injected via JS -->
+                </div>
+            </div>
+            
+            <!-- Recommendations -->
+            <div class="bg-surface border border-outline rounded-[28px] p-4 flex items-center gap-4">
+                <div class="w-10 h-10 bg-[#FFDBC1] rounded-full flex items-center justify-center shrink-0 text-xl" id="recIcon">
+                    💡
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-onSurface uppercase tracking-wider mb-1">Intelligent Planning</h4>
+                    <p id="recText" class="text-[12px] text-onSurfaceVariant leading-snug">--</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+</body>
+</html>

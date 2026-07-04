@@ -1,22 +1,25 @@
 # Weather Intelligence App
 
 ## Overview
-This repository contains a modern "Weather Intelligence App" built for deployment. It features a clean SaaS-style dashboard, search module, 7-day forecast cards, and trend charts.
+This repository contains a modern "Weather Intelligence App" featuring a clean SaaS-style dashboard, search module, 7-day forecast cards, and smart planning recommendations.
 
-## Important Note on Cloudflare Deployment
-*Note: As this project is built within the Android ecosystem using Kotlin and Jetpack Compose (instead of React/Vite), it compiles into an Android application (APK/AAB) rather than static web assets. To deploy an Android app, you would publish it to the Google Play Store or distribute the APK directly, rather than using Cloudflare Pages.*
+## 🚀 Cloudflare Pages Deployment (Web Version)
+To resolve the Cloudflare `Could not detect a directory containing static files` error, **a web-compatible SPA (Single Page Application) has been added to the root of this repository.**
 
-If you export this codebase to GitHub, the CI/CD pipeline would focus on Android builds using Gradle (`./gradlew assembleRelease`) rather than npm static builds.
+When configuring Cloudflare Pages for this GitHub repository:
+- **Framework Preset**: `Vite` (or `None`)
+- **Build Command**: `npm run build`
+- **Build Output Directory**: `dist`
 
-## Features
-- **Search Module:** Lookup global cities using the Open-Meteo Geocoding API.
-- **Current Weather:** View current temperature, wind speed, humidity, and condition.
-- **7-Day Forecast:** Detailed daily summary for the upcoming week.
-- **Analytics Charts:** Responsive data visualization for temperature trends.
-- **Smart Planning Recommendations:** Simple business/travel advice based on the forecast.
+Cloudflare will automatically detect the `package.json` and `index.html` at the root and build the static frontend.
+
+## 📱 Android Version (AI Studio Native)
+*Note: This repository was originally generated in AI Studio as an Android application using Kotlin and Jetpack Compose. The Android source code is safely preserved in the `/app` directory.*
+- If you are running this inside AI Studio, you will see the Android app running in the Streaming Emulator. 
+- You can build the Android APK via Gradle: `./gradlew assembleDebug`
 
 ## API Usage
-This app connects directly to the client-side public APIs:
+Both the Web and Android apps connect directly to the client-side public APIs:
 - Geocoding: `https://geocoding-api.open-meteo.com/v1/search`
 - Forecast: `https://api.open-meteo.com/v1/forecast`
 No custom API keys or GCP billing are required for weather functionality.
