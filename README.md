@@ -1,11 +1,22 @@
-<div align="center">
+# Weather Intelligence App
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+## Overview
+This repository contains a modern "Weather Intelligence App" built for deployment. It features a clean SaaS-style dashboard, search module, 7-day forecast cards, and trend charts.
 
-  <h1>Built with AI Studio</h2>
+## Important Note on Cloudflare Deployment
+*Note: As this project is built within the Android ecosystem using Kotlin and Jetpack Compose (instead of React/Vite), it compiles into an Android application (APK/AAB) rather than static web assets. To deploy an Android app, you would publish it to the Google Play Store or distribute the APK directly, rather than using Cloudflare Pages.*
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+If you export this codebase to GitHub, the CI/CD pipeline would focus on Android builds using Gradle (`./gradlew assembleRelease`) rather than npm static builds.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Features
+- **Search Module:** Lookup global cities using the Open-Meteo Geocoding API.
+- **Current Weather:** View current temperature, wind speed, humidity, and condition.
+- **7-Day Forecast:** Detailed daily summary for the upcoming week.
+- **Analytics Charts:** Responsive data visualization for temperature trends.
+- **Smart Planning Recommendations:** Simple business/travel advice based on the forecast.
 
-</div>
+## API Usage
+This app connects directly to the client-side public APIs:
+- Geocoding: `https://geocoding-api.open-meteo.com/v1/search`
+- Forecast: `https://api.open-meteo.com/v1/forecast`
+No custom API keys or GCP billing are required for weather functionality.

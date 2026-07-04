@@ -1,0 +1,31 @@
+package com.example.ui.theme
+
+import androidx.compose.ui.graphics.Color
+
+val BgLight = Color(0xFFF3F4F9)
+val TextMainLight = Color(0xFF1B1B1F)
+val TextSecondaryLight = Color(0xFF44474E)
+val TextMutedLight = Color(0xFF74777F)
+val CardPrimaryLight = Color(0xFFDDE2F9)
+val CardPrimaryTextLight = Color(0xFF151B2C)
+val CardSecondaryLight = Color(0xFFFFFFFF)
+val CardTertiaryLight = Color(0xFFFDFBFF)
+val BorderLight = Color(0xFFE1E2E9)
+val HighlightLight = Color(0xFFFFDBC1)
+val HighlightTextLight = Color(0xFF2B1700)
+val DarkCardLight = Color(0xFF1B1B1F)
+val DarkCardTextLight = Color(0xFFC4C6D0)
+
+val BgDark = Color(0xFF1B1B1F)
+val TextMainDark = Color(0xFFE3E2E6)
+val TextSecondaryDark = Color(0xFFC4C6D0)
+val TextMutedDark = Color(0xFF8E9099)
+val CardPrimaryDark = Color(0xFF3F4659)
+val CardPrimaryTextDark = Color(0xFFDDE2F9)
+val CardSecondaryDark = Color(0xFF2B2930)
+val CardTertiaryDark = Color(0xFF2B2930)
+val BorderDark = Color(0xFF44474E)
+val HighlightDark = Color(0xFF5D4028)
+val HighlightTextDark = Color(0xFFFFDBC1)
+val DarkCardDark = Color(0xFF3F4659)
+val DarkCardTextDark = Color(0xFFE3E2E6)
